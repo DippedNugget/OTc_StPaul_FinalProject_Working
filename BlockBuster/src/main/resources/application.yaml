@@ -1,0 +1,6 @@
+spring:  datasource:      password: blockbuster      username: blockbuster      url: jdbc:mysql://localhost:3306/otc_stpaul_blockbuster
+
+logging:
+  level:
+    root: warn
+    '[OTC.StPaul.Final.Project]': debug
