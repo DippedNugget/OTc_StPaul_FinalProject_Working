@@ -66,7 +66,7 @@ public class DefaultConcessionsDao implements ConcessionsDao {
     Map<String, Object> params = new HashMap<>();
     params.put("concessions_id", concessions_id);
     
-    return jdbcTemplate.query(sql,  new RowMapper<>() {
+    return jdbcTemplate.query(sql, params, new RowMapper<>() {
       
       @Override
       public concessions mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -97,7 +97,7 @@ public class DefaultConcessionsDao implements ConcessionsDao {
     Map<String, Object> params = new HashMap<>();
     params.put("full_name", full_name);
     
-    return jdbcTemplate.query(sql,  new RowMapper<>() {
+    return jdbcTemplate.query(sql, params, new RowMapper<>() {
       
       @Override
       public concessions mapRow(ResultSet rs, int rowNum) throws SQLException {

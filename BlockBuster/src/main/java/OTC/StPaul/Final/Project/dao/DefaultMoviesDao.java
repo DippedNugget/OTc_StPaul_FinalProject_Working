@@ -69,7 +69,7 @@ public class DefaultMoviesDao implements MoviesDao {
     Map<String, Object> params = new HashMap<>();
     params.put("movie_id", movie_id);
     
-    return jdbcTemplate.query(sql, new RowMapper<>() {
+    return jdbcTemplate.query(sql, params, new RowMapper<>() {
       
       @Override
       public movies mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -102,7 +102,7 @@ public class DefaultMoviesDao implements MoviesDao {
     Map<String, Object> params = new HashMap<>();
     params.put("title", title);
     
-    return jdbcTemplate.query(sql, new RowMapper<>() {
+    return jdbcTemplate.query(sql, params, new RowMapper<>() {
       
       @Override
       public movies mapRow(ResultSet rs, int rowNum) throws SQLException {
