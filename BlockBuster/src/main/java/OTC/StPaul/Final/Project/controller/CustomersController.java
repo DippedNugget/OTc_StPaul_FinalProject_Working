@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import OTC.StPaul.Final.Project.entity.customers;
+import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.servers.Server;
 
 @Validated
 @RequestMapping("/otc_stpaul_blockbuster")
@@ -23,11 +25,11 @@ public interface CustomersController {
   @GetMapping("/customers") ResponseEntity<List<customers>> listAllCustomers();
   
   @GetMapping("/customers/{customer_id}")
-  @ResponseStatus(code = HttpStatus.Ok)
+  @ResponseStatus(code = HttpStatus.OK)
   ResponseEntity<List<customers>> retrieveCustomersByCustomerId(@RequestParam(required = true)Integer customer_id);
   
   @GetMapping("/customer/{first_name, last_name}")
-  @ResponseStatus(code = HttpStatus.Ok)
+  @ResponseStatus(code = HttpStatus.OK)
   ResponseEntity<List<customers>> retrieveCustomerACustomerByFirstNameAndLastName(@RequestParam(required = true) String first_name, String last_name);
   
   @PostMapping("/customers/addcustomer")

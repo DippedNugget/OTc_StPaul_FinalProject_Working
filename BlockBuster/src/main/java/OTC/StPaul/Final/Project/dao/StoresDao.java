@@ -8,7 +8,7 @@ public interface StoresDao {
   
   List<stores> retrieveAStoreByStoreId(int store_idPK);
   
-  void addStore(int store_idPK, String address, String phone);
+  void addStore(String address, String phone);
   
   void deleteStoreById(int store_idPK);
   

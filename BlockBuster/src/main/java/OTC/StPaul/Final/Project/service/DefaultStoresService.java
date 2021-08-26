@@ -23,8 +23,8 @@ public class DefaultStoresService implements StoresService {
   }
 
   @Override
-  public void addStore(int store_idPK, String address, String phone) {
-    storesDao.addStore(store_idPK, address, phone);
+  public void addStore(String address, String phone) {
+    storesDao.addStore(address, phone);
     
   }
 

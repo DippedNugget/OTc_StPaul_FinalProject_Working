@@ -26,13 +26,14 @@ public class DefaultStoresController implements StoresController {
   @Override
   public ResponseEntity<List<stores>> retrieveAStoreByStoreId(int store_idPk) {
     log.info("A Request was made to list a store", store_idPk);
-    return new ResponseEntity<List<stores>>(aStore, HttpStatus.OK);
+    List<stores> singleStore = storesService.retrieveAStoreByStoreId(store_idPk);
+    return new ResponseEntity<List<stores>>(singleStore, HttpStatus.OK);
   }
 
   @Override
   public void addStore(String address, String phone) {
     log.info("Added a Store");
-    storesService.addStore(0, address, phone);
+    storesService.addStore(address, phone);
     
   }
 
