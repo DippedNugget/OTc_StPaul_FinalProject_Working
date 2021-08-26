@@ -13,13 +13,13 @@ public class DefaultUserValidationService implements UserValidationService{
   private UserValidationDao userValidationDao;
   
   @Override
-  public void addUserValidation(user_validation userValidation) {
-    userValidationDao.addUserValidation(userValidation);
+  public void addUserValidation(Long emp_idFK, String emp_username, String emp_validator) {
+    userValidationDao.addUserValidation(emp_idFK, emp_username, emp_validator);
   }
   
   @Override
-  public void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK) {
-    userValidationDao.updateUserValidatorByEmpId(emp_validator, emp_idFK);
+  public void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK, String emp_username) {
+    userValidationDao.updateUserValidatorByEmpId(emp_validator, emp_idFK, emp_username);
   }
   
   @Override
@@ -40,12 +40,6 @@ public class DefaultUserValidationService implements UserValidationService{
   @Override
   public List<user_validation> findEmpUsername(Long emp_idFK) {
     return userValidationDao.findEmpUsername(emp_idFK);
-  }
-
-  @Override
-  public void addUserValidation(Long emp_idFK, String emp_username, String emp_validator) {
-    // TODO Auto-generated method stub
-    
   }
   
 } // last bracket

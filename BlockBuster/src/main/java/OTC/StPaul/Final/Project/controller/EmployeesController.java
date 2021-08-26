@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,15 +26,15 @@ public interface EmployeesController {
   @GetMapping("/employees")
   ResponseEntity<List<employees>> listAllEmployees();
   
-  @GetMapping("/employees/{store_idFK}")
+  @GetMapping("/employeesbystoreid/{store_idFK}")
   @ResponseStatus(code = HttpStatus.OK)
   ResponseEntity<List<employees>> retrieveEmployeesByStoreID(
-      @RequestParam(required = true) Long store_idFK);
+      @PathVariable Long store_idFK);
   
-  @GetMapping("/employees/{employee_idPK}")
+  @GetMapping("/employeebyid/{employee_idPK}")
   @ResponseStatus(code = HttpStatus.OK)
   ResponseEntity<List<employees>> retrieveSingleEmployeeByEmployeeId(
-      @RequestParam(required = true) Long employee_idPK);
+      @PathVariable Long employee_idPK);
   
   @PostMapping("/employees/addemployee")
   @ResponseStatus(code = HttpStatus.CREATED)
@@ -48,30 +49,30 @@ public interface EmployeesController {
   @DeleteMapping("/deleteemployee/{employee_idPK}")
   @ResponseStatus(code = HttpStatus.OK)
   void deleteEmployeeById(
-      @RequestParam(required = true) Long employee_idPK);
+      @PathVariable Long employee_idPK);
   
   @PutMapping("/updateemployees/{full_name}")
   @ResponseStatus(code = HttpStatus.OK)
   void updateEmployeeFirstNameById(
       @RequestParam(required = true) String full_name, 
-      @RequestParam(required = true) Long employee_idPK);
+      @PathVariable Long employee_idPK);
 
   @PutMapping("/updateemployees/{last_name}")
   @ResponseStatus(code = HttpStatus.OK)
   void updateEmployeeLastNameById(
       @RequestParam(required = true) String last_name, 
-      @RequestParam(required = true) Long employee_idPK);
+      @PathVariable Long employee_idPK);
   
   @PutMapping("/updateemployees/{address}")
   @ResponseStatus(code = HttpStatus.OK)
   void updateEmployeeAddressById(
       @RequestParam(required = true) String address,
-      @RequestParam(required = true) Long employee_idPK);
+      @PathVariable Long employee_idPK);
   
   @PutMapping("/updateemployees/{phone}")
   @ResponseStatus(code = HttpStatus.OK)
   void updateEmployeePhoneById(
       @RequestParam(required = true) String phone,
-      @RequestParam(required = true) Long employee_idPK);
+      @PathVariable Long employee_idPK);
   
 } // last bracket

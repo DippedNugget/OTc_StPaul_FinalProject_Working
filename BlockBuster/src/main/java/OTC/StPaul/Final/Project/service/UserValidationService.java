@@ -5,11 +5,6 @@ import OTC.StPaul.Final.Project.entity.user_validation;
 
 public interface UserValidationService {
 
-  /**
-   * 
-   * @param userValidation
-   */
-  void addUserValidation(user_validation userValidation);
   
   /**
    * 
@@ -24,7 +19,7 @@ public interface UserValidationService {
    * @param emp_validator
    * @param emp_idFK
    */
-  void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK);
+  void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK, String emp_username);
 
   /**
    * 

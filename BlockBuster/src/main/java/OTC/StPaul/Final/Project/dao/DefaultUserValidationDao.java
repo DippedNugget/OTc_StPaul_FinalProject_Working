@@ -29,7 +29,7 @@ public class DefaultUserValidationDao extends JdbcDaoSupport implements UserVali
   
   // adds login credentials for a user
   @Override
-  public void addUserValidation(user_validation userValidation) {
+  public void addUserValidation(Long emp_idFK, String emp_username, String emp_validator) {
     
     // @formatter:off
     String sql = ""
@@ -41,9 +41,9 @@ public class DefaultUserValidationDao extends JdbcDaoSupport implements UserVali
     // @formatter:on
     
     Map<String, Object> params = new HashMap<>();
-    params.put("emp_idFK", userValidation.getEmp_idFK());
-    params.put("emp_username", userValidation.getEmp_username());
-    params.put("emp_validator", userValidation.getEmp_validator());
+    params.put("emp_idFK", emp_idFK);
+    params.put("emp_username", emp_username);
+    params.put("emp_validator", emp_validator);
     
     jdbcTemplate.update(sql, params);
   }
@@ -64,20 +64,22 @@ public class DefaultUserValidationDao extends JdbcDaoSupport implements UserVali
     jdbcTemplate.update(sql, params);
   }
   
-  // updates an employees emp_validator (password) by employee id number
+  // updates an employees emp_validator (password) by employee id number & username
   @Override
-  public void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK) {
+  public void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK, String emp_username) {
    
    // @formatter:off
    String sql = ""
        + "UPDATE user_validation "
        + "SET emp_validator = :emp_validator "
-       + "WHERE emp_idFK = :emp_idFK";
+       + "WHERE emp_idFK = :emp_idFK "
+       + "AND emp_username = :emp_username";
    // @formatter:on
    
    Map<String, Object> params = new HashMap<>();
    params.put("emp_validator", emp_validator);
    params.put("emp_idFK", emp_idFK);
+   params.put("emp_username", emp_username);
    
    jdbcTemplate.update(sql, params);
  }

@@ -29,9 +29,9 @@ public class DefaultUserValidationController implements UserValidationController
   }
 
   @Override
-  public void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK) {
+  public void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK, String emp_username) {
     log.info("Updated and employees={} validator", emp_idFK);
-    userValidationService.updateUserValidatorByEmpId(emp_validator, emp_idFK); 
+    userValidationService.updateUserValidatorByEmpId(emp_validator, emp_idFK, emp_username); 
   }
 
   @Override

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,27 +33,28 @@ public interface UserValidationController {
   @DeleteMapping("/deleteuser_validation/{emp_idFK}")
   @ResponseStatus(code = HttpStatus.OK)
   void deleteUserValidationByEmpId(
-      @RequestParam(required = true) String emp_idFK);
+      @PathVariable String emp_idFK);
   
-  @PutMapping("/updateuser_validation/{emp_idFK}")
+  @PutMapping("/updateuser_validation/{emp_idFK}/{emp_username}")
   @ResponseStatus(code = HttpStatus.OK)
   void updateUserValidatorByEmpId(
       @RequestParam(required = true) String emp_validator,
-      @RequestParam(required = true) Long emp_idFK);
+      @PathVariable Long emp_idFK,
+      @PathVariable String emp_username);
   
   @PutMapping("/enableuser_validation/{emp_idFK}")
   @ResponseStatus(code = HttpStatus.OK)
   void enableUserValidationByEmpId(
-      @RequestParam(required = true) String emp_idFK);
+      @PathVariable String emp_idFK);
   
   @PutMapping("/disableuser_validation/{emp_idFK}")
   @ResponseStatus(code = HttpStatus.OK)
   void disableUserValidationByEmpId(
-      @RequestParam(required = true) String emp_idFK);
+      @PathVariable String emp_idFK);
   
   @GetMapping("/user_validation/{emp_idFK}")
   @ResponseStatus(code = HttpStatus.OK)
   ResponseEntity<List<user_validation>> findEmpUsername(
-      @RequestParam(required = true) Long emp_idFK);
+      @PathVariable Long emp_idFK);
       
 } // last bracket

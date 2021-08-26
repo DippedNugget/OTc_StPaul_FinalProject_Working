@@ -7,16 +7,18 @@ public interface UserValidationDao {
 
   /**
    * 
-   * @param userValidation
+   * @param emp_idFK
+   * @param emp_username
+   * @param emp_validator
    */
-  void addUserValidation(user_validation userValidation);
+  void addUserValidation(Long emp_idFK, String emp_username, String emp_validator);
   
   /**
    * 
    * @param emp_validator
    * @param emp_idFK
    */
-  void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK);
+  void updateUserValidatorByEmpId(String emp_validator, Long emp_idFK, String emp_username);
   
   /**
    * 

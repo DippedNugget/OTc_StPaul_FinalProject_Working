@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +26,7 @@ public interface UserRolesController {
   @GetMapping("/alluser_roles/{emp_username}")
   @ResponseStatus(code = HttpStatus.OK)
   ResponseEntity<List<user_roles>> getUserRoles(
-      @RequestParam(required = true) String emp_username);
+      @PathVariable String emp_username);
 
   @GetMapping("/user_roles/{roles}")
   @ResponseStatus(code = HttpStatus.OK)
@@ -41,6 +42,6 @@ public interface UserRolesController {
   @DeleteMapping("/deleteuser_roles/{role_id}")
   @ResponseStatus(code = HttpStatus.OK)
   void deleteRolesFromEmployeeByRoleId(
-      @RequestParam(required = true) Long role_id);
+      @PathVariable Long role_id);
   
 } // last bracket

@@ -32,7 +32,7 @@ public class DefaultUserRolesDao implements UserRolesDao {
     String sql = ""
        + "SELECT emp_username, user_role "
        + "FROM user_roles "
-       + "WHERE emp_username = ?";
+       + "WHERE emp_username = :emp_username";
     // @formatter:on
 
     Map<String, Object> params = new HashMap<>();
@@ -45,7 +45,6 @@ public class DefaultUserRolesDao implements UserRolesDao {
         if (rs.next()) {
           // @formatter:off
           return List.of(user_roles.builder()
-              .role_id(rs.getLong("role_id"))
               .emp_username(rs.getString("emp_username"))
               .user_role(rs.getString("user_role"))
               .build());
